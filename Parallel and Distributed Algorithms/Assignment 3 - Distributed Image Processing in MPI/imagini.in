@@ -1,0 +1,5 @@
+4
+sharpen pic1.pgm pic1-sharpen-out.pgm
+smooth pic2.pgm pic2-smooth-out.pgm
+mean_removal pic3.pgm pic3-m_removal-out.pgm
+blur pic4.pgm pic4-blur-out.pgm

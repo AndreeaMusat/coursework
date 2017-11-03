@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="compile">
+	<target name="delete">
+		<delete dir="classes"/>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="bin"/>
+		<javac srcdir="src" destdir="bin" includeantruntime="false"/>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="eventqueue.jar" basedir="bin">
+			<manifest>
+				<attribute name="Main-Class" value="Main"/>
+			</manifest>
+		</jar>
+	</target>
+
+</project>
