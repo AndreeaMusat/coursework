@@ -1,0 +1,31 @@
+README Tema 1 SO - Hashtable
+Musat Andreea Alexandra, 333CA
+
+----------------------- Detalii de implementare -----------------------
+
+Bucket-urile hashtable-ului sunt implementate ca liste dublu inlantuite si 
+cu pointer atat catre inceputul listei, cat si pentru final (este nevoie 
+de tail, de exemplu, pentru a nu mai fi necesar ca lista sa fie parcursa 
+pentru a-i gasi ultimul nod in cazul unei operatii append). Toate nodurile
+sunt alocate dinamic, iar functiile specifice listelor primesc ca parametru
+un pointer la lista. 
+
+Apoi, hashtable-ul este implementat ca un struct continand un array de 
+pointeri la liste inlantuite si o dimensiune. Hashtable-ul este alocat 
+dinamic, iar in cadrul functiilor de dublare/injumatatire a dimensiunii
+se creeaza un nou hashtable cu dimensiunea dorita, iar apoi continutul
+vechiului hashtable este copiat in cel nou, la final dezalocandu-se 
+memoria folosita de cel vechi. Pentru adaugare/stergere/gasire cuvant 
+in hashtable, pentru ca operatiile sa fie facute in O(1) (average time), 
+se foloseste functia de hash, care intoarce un intreg nenegativ care 
+reprezinta indexul bucket-ului in care ar trebui sa se gaseasca cuvantul
+respectiv. 
+
+Parsarea input-ului se face despartind liniile citite in cuvinte 
+(considerand ca acestea sunt separate de spatiu) si apoi se verifica, pe
+rand, egalitatea intre primul cuvand al comenzii cu toate string-urile 
+ce reprezinta nume de comenzi ("add", "remove", "print" etc), in cazul 
+in care este gasit un cuvant ce nu este cunoscut, afisandu-se un mesaj 
+de eroare. Pentru fiecare comanda corect identificata se apeleaza o 
+functie specifica hashtable-ului (addWordHash, removeWordHash, 
+printHash etc).
