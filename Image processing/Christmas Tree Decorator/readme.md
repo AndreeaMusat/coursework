@@ -9,7 +9,7 @@ Given a picture of a Christmas tree (created in paint/pinta etc), detect all the
 
 **Usage**: python detect.py input/*.png 
 
-**Example outputs**
+**Example outputs** <br />
 Before: <br />
 ![alt text](https://github.com/AndreeaMusat/coursework/blob/master/Image%20processing/Christmas%20Tree%20Decorator/input/brad.png)
 
