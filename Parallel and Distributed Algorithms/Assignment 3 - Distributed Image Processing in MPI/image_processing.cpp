@@ -223,9 +223,8 @@ int main(int argc, char **argv)
 				children_buff_sizes.pb(crt_buffer_size);
 
 				MPI_Send(&crt_buffer_size, 1, MPI_INT, mst[rank][j], 0, MPI_COMM_WORLD);
-			// 	printf("Root sent buffer_size = %d to child %d:  ", crt_buffer_size, mst[rank][j]);
 
-				// // daca dim buferului e nenula, voi trimite si bufferul
+				// daca dim buferului e nenula, voi trimite si bufferul
 				if (crt_buffer_size > 0)
 				{
 					int start_index = limits[j].first * column_size;
@@ -241,28 +240,20 @@ int main(int argc, char **argv)
 				{
 					int *new_buffer = new int[children_buff_sizes[j] * column_size];
 					MPI_Recv(new_buffer, children_buff_sizes[j] * column_size, MPI_INT, mst[rank][j], 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-
-					// printf("Node %d received from child processed buffer:", rank);
-					// for (int k = 0; k < children_buff_sizes[j] * column_size; k++)
-					// 	printf("%d ", new_buffer[k]);
-					// printf("\n\n");
+					
 					// asamblez imaginea 
-
 					if (useful_children == 1 && j == 0)
 					{
-						cout << "r1\n";
 						range(k, 0, children_buff_sizes[j] * column_size)
 							buffer[k] = new_buffer[k];
 					}
 					else if (j == 0)
 					{
-						cout << "r2\n";
 						range(k, 0, (children_buff_sizes[j] - 1) * column_size)
 							buffer[k] = new_buffer[k];
 					}
 					else if (j == useful_children - 1)
 					{
-						cout << "r3\n";
 						int buffer_start_index = (limits[j].first + 1) * column_size;
 						int buffer_stop_index = buffer_start_index + (children_buff_sizes[j] - 1) * column_size;
 
@@ -270,7 +261,6 @@ int main(int argc, char **argv)
 							buffer[k] = new_buffer[k - buffer_start_index + column_size];
 					}
 					else {
-						cout << "r4\n";
 						int buffer_start_index = (limits[j].first + 1) * column_size;
 						int buffer_stop_index = buffer_start_index + (children_buff_sizes[j] - 2) * column_size;
 
@@ -297,7 +287,7 @@ int main(int argc, char **argv)
 			// primesc dimensiunea coloanei de la nodul parinte
 			MPI_Recv(&column_size, 1, MPI_INT, parents[rank], 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
-			// // primesc dimensiune chunk curent de la nodul parinte
+			// primesc dimensiune chunk curent de la nodul parinte
 			MPI_Recv(&buffer_size, 1, MPI_INT, parents[rank], 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 			printf("Node %d received buffer_size = %d from parent %d\n", rank, buffer_size, parents[rank]);
 
@@ -360,27 +350,19 @@ int main(int argc, char **argv)
 						// // primesc de la copil bufferul procesat
 						int *new_buffer = new int[children_buff_sizes[j] * column_size];
 						MPI_Recv(new_buffer, children_buff_sizes[j] * column_size, MPI_INT, mst[rank][j], 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-
-						// printf("Node %d received from child processed buffer:", rank);
-						// for (int k = 0; k < children_buff_sizes[j] * column_size; k++)
-						// 	printf("%d ", new_buffer[k]);
-						// printf("\n\n");
 						
 						if (useful_children == 1 && j == 0)
 						{
-							cout << "r1\n";
 							range(k, 0, children_buff_sizes[j] * column_size)
 								buffer[k] = new_buffer[k];
 						}
 						else if (j == 0)
 						{
-							cout << "r2\n";
 							range(k, 0, (children_buff_sizes[j] - 1) * column_size)
 								buffer[k] = new_buffer[k];
 						}
 						else if (j == useful_children - 1)
 						{
-							cout << "r3\n";
 							int buffer_start_index = (limits[j].first + 1) * column_size;
 							int buffer_stop_index = buffer_start_index + (children_buff_sizes[j] - 1) * column_size;
 
@@ -388,7 +370,6 @@ int main(int argc, char **argv)
 								buffer[k] = new_buffer[k - buffer_start_index + column_size];
 						}
 						else {
-							cout << "r4\n";
 							int buffer_start_index = (limits[j].first + 1) * column_size;
 							int buffer_stop_index = buffer_start_index + (children_buff_sizes[j] - 2) * column_size;
 
