@@ -1,6 +1,6 @@
 # C Memory Allocator
 
-One of my first assignments from university (~4 years ago)
+One of my first assignments from university (~4 years ago)\
 My coding style is better now, I swear!
 
 ![alt-text](https://img.devrant.com/devrant/rant/r_399333_jip2Y.jpg)
