@@ -11,9 +11,7 @@ Tema are 7 fisiere sursa, astfel:
  	functia free elibereaza un bloc alocat, dar nu ii sterge continutul. Sunt analizate 4 cazuri: Blocul este singurul din arena, blocul este primul din arena, ultimul sau in niciunul dintre cazurile mentionate. In fiecare caz, se modifica octetii corespunzatori de gestiune de la blocul anterior (daca exista, daca nu, indexul de start) si de la blocul urmator (asemenea, daca exista).
 
      -alloc.c functia alloc
-	functia alloc intoarce indexul primei zone in care se poate aloca un vloc avand dimensiunea ceruta. Sunt analizate mai multe cazuri:
-daca arena este goala, atunci blocul va incepe pe pozitia 16.
-daca arena nu este goala, atunci se testeaza daca exista spatiu intre indexul de start si primul bloc. Daca nu, se testeaza daca exista spatiu intre blocurile alocate pana atunci. In caz contrar, blocul nou va fi alocat la sfarsitul arenei. (Blocul se aloca numai in cazul in care dimensiunea permite asta)
+	functia alloc intoarce indexul primei zone in care se poate aloca un vloc avand dimensiunea ceruta. Sunt analizate mai multe cazuri: daca arena este goala, atunci blocul va incepe pe pozitia 16. Daca arena nu este goala, atunci se testeaza daca exista spatiu intre indexul de start si primul bloc. Daca nu, se testeaza daca exista spatiu intre blocurile alocate pana atunci. In caz contrar, blocul nou va fi alocat la sfarsitul arenei. (Blocul se aloca numai in cazul in care dimensiunea permite asta)
 
      -show.c functiile show free, shoe usage si show allocations
 
