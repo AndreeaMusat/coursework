@@ -22,10 +22,10 @@ next_to(A, B) :- on_the_left_of(A, B).
 
 getSolution(AllHouses, FishOwner) :- 
 	AllHouses = [ house(0, Color0, Who0, Pet0, Drink0, Smoke0), 
-				   house(1, Color1, Who1, Pet1, Drink1, Smoke1), 
-				   house(2, Color2, Who2, Pet2, Drink2, Smoke2), 
-				   house(3, Color3, Who3, Pet3, Drink3, Smoke3), 
-				   house(4, Color4, Who4, Pet4, Drink4, Smoke4) 
+		      house(1, Color1, Who1, Pet1, Drink1, Smoke1), 
+		      house(2, Color2, Who2, Pet2, Drink2, Smoke2), 
+		      house(3, Color3, Who3, Pet3, Drink3, Smoke3), 
+		      house(4, Color4, Who4, Pet4, Drink4, Smoke4) 
 	], 
 	member(house(_, red, british, _, _, _), AllHouses),     		% Britanicul locuieşte în casa roşie. 
 	member(house(NorwHouseNum, _, norwegian, _, _, _), AllHouses),		% Norvegianul locuieşte lângă casa albastră. 
