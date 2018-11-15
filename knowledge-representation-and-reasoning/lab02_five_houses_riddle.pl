@@ -27,28 +27,28 @@ getSolution(AllHouses, FishOwner) :-
 				   house(3, Color3, Who3, Pet3, Drink3, Smoke3), 
 				   house(4, Color4, Who4, Pet4, Drink4, Smoke4) 
 	], 
-	member(house(_, red, british, _, _, _), AllHouses),     			% Britanicul locuieşte în casa roşie. 
+	member(house(_, red, british, _, _, _), AllHouses),     		% Britanicul locuieşte în casa roşie. 
 	member(house(NorwHouseNum, _, norwegian, _, _, _), AllHouses),		% Norvegianul locuieşte lângă casa albastră. 
 	member(house(BlueHouseNum, blue, _, _, _, _), AllHouses),
 	next_to(NorwHouseNum, BlueHouseNum),
-	member(house(GreenHouseNum, green, _, _, _, _), AllHouses),			% Casa verde se află în stânga casei albe.
+	member(house(GreenHouseNum, green, _, _, _, _), AllHouses),		% Casa verde se află în stânga casei albe.
 	member(house(WhiteHouseNum, white, _, _, _, _), AllHouses),
 	on_the_left_of(GreenHouseNum, WhiteHouseNum),										 
-	member(house(_, green, _, _, coffee, _), AllHouses),				% Locatarul casei verzi bea cafea. 
-	member(house(2, _, _, _, milk, _), AllHouses),						% Locatarul casei din mijloc bea lapte. 
-	member(house(_, yellow, _, _, _, dunhill), AllHouses), 				% Locatarul din casa galbenă fumează Dunhill.
-	member(house(0, _, norwegian, _, _, _), AllHouses),					% Norvegianul locuieşte în prima casă. 
-	member(house(_, _, swedish, dog, _, _), AllHouses), 				% Suedezul are un câine. 
-	member(house(_, _, _, bird, _, pallMall), AllHouses),				% Persoana care fumează Pall Mall are o pasăre. 			
+	member(house(_, green, _, _, coffee, _), AllHouses),			% Locatarul casei verzi bea cafea. 
+	member(house(2, _, _, _, milk, _), AllHouses),				% Locatarul casei din mijloc bea lapte. 
+	member(house(_, yellow, _, _, _, dunhill), AllHouses), 			% Locatarul din casa galbenă fumează Dunhill.
+	member(house(0, _, norwegian, _, _, _), AllHouses),			% Norvegianul locuieşte în prima casă. 
+	member(house(_, _, swedish, dog, _, _), AllHouses), 			% Suedezul are un câine. 
+	member(house(_, _, _, bird, _, pallMall), AllHouses),			% Persoana care fumează Pall Mall are o pasăre. 			
 	member(house(MarlboroHouseNum, _, _, _, _, marlboro), AllHouses),	% Fumătorul de Marlboro locuieşte lângă cel care are o pisică. 
 	member(house(CatHouseNum, _, _, cat, _, _), AllHouses),
 	next_to(MarlboroHouseNum, CatHouseNum),
-	member(house(_, _, _, _, beer, winfield), AllHouses),				% Fumătorul de Winfield bea bere. 
-	member(house(HorseHouseNum, _, _, horse, _, _), AllHouses),			% Locatarul care are un cal locuieşte lângă cel care fumează Dunhill. 
+	member(house(_, _, _, _, beer, winfield), AllHouses),			% Fumătorul de Winfield bea bere. 
+	member(house(HorseHouseNum, _, _, horse, _, _), AllHouses),		% Locatarul care are un cal locuieşte lângă cel care fumează Dunhill. 
 	member(house(DunhillHouseNum, _, _, _, _, dunhill), AllHouses),		
 	next_to(HorseHouseNum, DunhillHouseNum),			
-	member(house(_, _, german, _, _, rothmans), AllHouses), 			% Germanul fumează Rothmans. 
-	member(house(WaterHouseNum, _, _, _, water, _), AllHouses),			% Fumătorul de Marlboro are un vecin care bea apă. 
+	member(house(_, _, german, _, _, rothmans), AllHouses), 		% Germanul fumează Rothmans. 
+	member(house(WaterHouseNum, _, _, _, water, _), AllHouses),		% Fumătorul de Marlboro are un vecin care bea apă. 
 	next_to(MarlboroHouseNum, WaterHouseNum), 
 	member(house(_, _, FishOwner, fish, _, _), AllHouses).
   
